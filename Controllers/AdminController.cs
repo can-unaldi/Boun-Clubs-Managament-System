@@ -96,7 +96,6 @@ namespace BounClubs.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View("Index", userManager.Users);
         }
         [HttpPost]
         public async Task<IActionResult> Update(string id, string Password, string Email)
