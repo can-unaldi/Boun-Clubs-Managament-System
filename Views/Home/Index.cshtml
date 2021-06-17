@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Event>
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="bg-primary text-center">
+    <h2>Yaklanşan Etkinlikler</h2>
+
+</div>
+<table class="table table-bordered table-striped ">
+    <tr>
+        <th>Etkinlik Adı</th>
+        <th>Kulüp Adı</th>
+        <th>Tarih</th>
+        <th>Konum</th>
+        <th>Detaylar</th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+
+        <tr>
+            <td colspan="5" class="text-center">
+                No Events
+            </td>
+        </tr>
+
+    }
+    else
+    {
+        foreach (var clubEvent in Model)
+        {
+            if (clubEvent.AdvisorApproval==1&&clubEvent.DeanAproval==1 && clubEvent.KakApproval==1 && clubEvent.ReservationApproval==1)
+            {
+                <tr>
+                    <td>@clubEvent.EventName</td>
+                    <td>@clubEvent.ClubName</td>
+                    <td>@clubEvent.StartDate</td>
+                    <td>@clubEvent.Place</td>
+
+                    <td>
+                        <a asp-action="Details" asp-controller="Event" asp-route-id="@clubEvent.EventId" class="btn btn-primary">
+                            Detaylar
+                        </a>
+                    </td>
+                </tr>
+            }
+
+
+        }
+    }
+</table>

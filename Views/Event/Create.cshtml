@@ -1,0 +1,64 @@
+﻿@model EventCreateModel
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="bg-primary">
+    <h2>Create Event</h2>
+
+</div>
+<form asp-action="Create" asp-controller="Event" method="post" class="form-horizontal">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="ClubId"></label>
+        <input asp-for="ClubId" value="@UserManager.GetUserName(User).ToString()" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubName"></label>
+        <input asp-for="ClubName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EventName"></label>
+        <input asp-for="EventName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="StartDate"></label>
+        <input asp-for="StartDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="EndDate"></label>
+        <input asp-for="EndDate" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ParticipantCount"></label>
+        <input asp-for="ParticipantCount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Revenue"></label>
+        <input asp-for="Revenue" type="checkbox" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Media"></label>
+        <input asp-for="Media" type="checkbox" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <input asp-for="Type" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Place"></label>
+        <input asp-for="Place" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Speaker"></label>
+        <input asp-for="Speaker" class="form-control" />
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary" />
+    <a asp-action="Manage" asp-controller="Club" class="btn btn-danger">Cancel</a>
+
+</form>
+

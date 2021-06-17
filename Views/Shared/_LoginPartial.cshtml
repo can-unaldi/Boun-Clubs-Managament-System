@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject RoleManager<IdentityRole> RoleManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+<form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @if (User.IsInRole("club"))
+                {
+                    <a asp-action="Manage" asp-controller="Club" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
+                }
+                else if (User.IsInRole("admin"))
+                {
+                    <a asp-action="Index" asp-controller="Admin" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
+                }
+                else if (User.IsInRole("deanoffice"))
+                {
+                    <a asp-action="Index" asp-controller="DeanOffice" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
+                }
+                else if (User.IsInRole("advisor"))
+                {
+                    <a asp-action="Index" asp-controller="Advisor" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
+                }
+                else if (User.IsInRole("reservationoffice"))
+                {
+                    <a asp-action="Index" asp-controller="Reservation" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
+                }
+                else if (User.IsInRole("kakyk"))
+                {
+                    <a asp-action="KakYk" asp-controller="Kak" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
+                }
+            </li>
+            <li>
+                <button asp-action="Logout" asp-controller="Account" class="btn btn-link navbar-btn navbar-link">Logout</button>
+            </li>
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-action="Login" asp-controller="Account" >Login</a></li>
+    </ul>
+}

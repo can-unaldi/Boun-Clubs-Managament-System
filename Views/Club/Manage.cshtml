@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Event>
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Manage";
+}
+
+<div class="bg-primary text-center">
+    <h2>Etkinlik Listesi</h2>
+
+</div>
+<div class="text-center">
+    <a asp-action="Create" asp-controller="Event" class="btn btn-primary">Create Event</a>
+    <a asp-action="Index" asp-controller="Kak" class="btn btn-info">Kulüpler Arası Kurul</a>
+</div>
+<br />
+<table class="table table-bordered table-striped ">
+    <tr>
+        <th>Etkinlik ID</th>
+        <th>Etkinlik Adı</th>
+        <th>Kulüp Adı</th>
+        <th>Danışman Onayı</th>
+        <th>Rezervasyon Onayı</th>
+        <th>KAK Onayı</th>
+        <th>Dekanlık Onayı</th>
+        <th>Update/Delete Event</th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+
+        <tr>
+            <td colspan="7" class="text-center">
+                No Events
+            </td>
+        </tr>
+
+    }
+    else
+    {
+        foreach (var clubEvent in Model)
+        {
+            if (clubEvent.ClubId == @UserManager.GetUserName(User).ToString())
+            {
+                <tr>
+                    <td>@clubEvent.EventId</td>
+                    <td>@clubEvent.EventName</td>
+                    <td>@clubEvent.ClubName</td>
+                    <td>
+                        @if (clubEvent.AdvisorApproval == 1)
+                        {
+                            <a class="btn btn-success">Onaylandı</a>
+                        }
+                        else if (clubEvent.AdvisorApproval == 2)
+                        {
+                            <a class="btn btn-danger">Onaylanmadı</a>
+                        }
+                        else if (clubEvent.AdvisorApproval == 0)
+                        {
+                            <a class="btn btn-warning">Onay Bekliyor</a>
+                        }
+                    </td>
+                    <td>
+                        @if (clubEvent.ReservationApproval == 1)
+                        {
+                            <a class="btn btn-success">Onaylandı</a>
+                        }
+                        else if (clubEvent.ReservationApproval == 2)
+                        {
+                            <a class="btn btn-danger">Onaylanmadı</a>
+                        }
+                        else if (clubEvent.ReservationApproval == 0)
+                        {
+                            <a class="btn btn-warning">Onay Bekliyor</a>
+                        }
+                    </td>
+                    <td>
+                        @if (clubEvent.KakApproval == 1)
+                        {
+                            <a class="btn btn-success">Onaylandı</a>
+                        }
+                        else if (clubEvent.KakApproval == 2)
+                        {
+                            <a class="btn btn-danger">Onaylanmadı</a>
+                        }
+                        else if (clubEvent.KakApproval == 0)
+                        {
+                            <a class="btn btn-warning">Onay Bekliyor</a>
+                        }
+                    </td>
+                    <td>
+                        @if (clubEvent.DeanAproval == 1)
+                        {
+                            <a class="btn btn-success">Onaylandı</a>
+                        }
+                        else if (clubEvent.DeanAproval == 2)
+                        {
+                            <a class="btn btn-danger">Onaylanmadı</a>
+                        }
+                        else if (clubEvent.DeanAproval == 0)
+                        {
+                            <a class="btn btn-warning">Onay Bekliyor</a>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Update" asp-controller="Event" asp-route-id="@clubEvent.EventId" class="btn btn-primary">
+                            Update
+                        </a>
+                        <a asp-action="Delete" asp-controller="Event" asp-route-id="@clubEvent.EventId" class="btn btn-danger">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+            
+
+        }
+    }
+</table>
+
+

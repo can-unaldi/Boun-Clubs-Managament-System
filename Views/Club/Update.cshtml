@@ -1,0 +1,47 @@
+﻿@model Club
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="bg-primary">
+    <h2>Update User</h2>
+
+</div>
+<form asp-action="Update" asp-controller="Club" method="post">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="ClubId"></label>
+        <input asp-for="ClubId" class="form-control" disabled />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubUserName"></label>
+        <input asp-for="ClubUserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubName"></label>
+        <input asp-for="ClubName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubDescription"></label>
+        <input asp-for="ClubDescription" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubMail"></label>
+        <input asp-for="ClubMail" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubWebSite"></label>
+        <input asp-for="ClubWebSite" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubAdvisorUserName"></label>
+        <input asp-for="ClubAdvisorUserName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ClubLogo"></label>
+        <input asp-for="ClubLogo" class="form-control" />
+    </div>
+    <input type="submit" value="Update" class="btn btn-primary" />
+    <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Cancel</a>
+</form>
+
