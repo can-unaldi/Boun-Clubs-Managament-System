@@ -3,45 +3,68 @@
     ViewData["Title"] = "Update";
 }
 
-<div class="bg-primary">
+<div>
     <h2>Update User</h2>
 
 </div>
-<form asp-action="Update" asp-controller="Club" method="post">
+<form class="form-control-static form-inline" asp-action="Update" asp-controller="Club" method="post">
     <div class="text-danger" asp-validation-summary="All"></div>
     <div class="form-group">
         <label asp-for="ClubId"></label>
+        <br />
         <input asp-for="ClubId" class="form-control" disabled />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubUserName"></label>
+        <br />
         <input asp-for="ClubUserName" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubName"></label>
+        <br />
         <input asp-for="ClubName" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubDescription"></label>
+        <br />
         <input asp-for="ClubDescription" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubMail"></label>
+        <br />
         <input asp-for="ClubMail" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubWebSite"></label>
+        <br />
         <input asp-for="ClubWebSite" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubAdvisorUserName"></label>
+        <br />
         <input asp-for="ClubAdvisorUserName" class="form-control" />
     </div>
+    <br />
     <div class="form-group">
         <label asp-for="ClubLogo"></label>
+        <br />
         <input asp-for="ClubLogo" class="form-control" />
     </div>
+    <br />
+    <br />
     <input type="submit" value="Update" class="btn btn-primary" />
     <a asp-action="Index" asp-controller="Home" class="btn btn-danger">Cancel</a>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </form>
 

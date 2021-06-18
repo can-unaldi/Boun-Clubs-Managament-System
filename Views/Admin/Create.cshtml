@@ -3,29 +3,29 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="bg-primary">
+<div>
     <h2>Create User</h2>
 
 </div>
 <form asp-action="Create" method="post" class="form-inline">
     <div class="text-danger" asp-validation-summary="All"></div>
     <div class="form-group">
-        <label asp-for="UserName"></label>
-        <input asp-for="UserName" class="form-control" />
+        <input asp-for="UserName" class="form-control" placeholder="Username" />
     </div>
+    <br />
+    <br />
     <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" />
+        <input asp-for="Password" class="form-control" placeholder="Password" />
     </div>
+    <br />
+    <br />
     <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
+        <input asp-for="Email" class="form-control" placeholder="Email" />
     </div>
-    
-    
-        <input type="submit" value="Create" class="btn btn-primary" />
-        
-        <a asp-action="Index" class="btn btn-danger">Cancel</a>
-       
+    <br />
+    <br />
+    <input type="submit" value="Create" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-danger">Cancel</a>
+
 </form>
 

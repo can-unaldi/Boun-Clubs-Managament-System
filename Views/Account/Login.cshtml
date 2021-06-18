@@ -3,21 +3,32 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="bg-primary">
+<div class="text-center">
     <h2>Login</h2>
 </div>
-<div class="text-danger" asp-validation-summary="All"></div>
-<form asp-action="Login" method="post">
+
+<form class="form-control-static form-inline text-center" asp-action="Login" method="post">
 
     <input type="hidden" value="@ViewBag.returnUrl" name="returnUrl" />
     <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
+        <input asp-for="Email" class="form-control" placeholder="Email" />
     </div>
+    <br />
+    <br />
     <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" />
+        <input asp-for="Password" class="form-control" placeholder="Password" />
     </div>
-    <button type="submit" class="btn btn-primary">Login</button>
+    <br />
+    <br />
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Remember me
+        </label>
+    </div>
+    <br />
+    <br />
+    <button type="submit">Login</button>
+
 </form>
 

@@ -3,11 +3,11 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="bg-primary text-center">
+<div class="text-center">
     <h2>Onay Bekleyen Etkinlikler</h2>
 
 </div>
-<table class="table table-bordered table-striped ">
+<table class="table table-hover table-striped table-responsive">
     <tr>
         <th>Etkinlik Adı</th>
         <th>Kulüp Adı</th>
@@ -30,12 +30,12 @@
                 <td>@clubEvent.EventName</td>
                 <td>@clubEvent.ClubName</td>
                 <td>
-                    <a asp-action="Details" asp-controller="Event" asp-route-id="@clubEvent.EventId" class="btn btn-default">
+                    <a asp-action="Details" asp-controller="Event" asp-route-id="@clubEvent.EventId" class="btn btn-primary">
                         Detaylar
                     </a>
                 </td>
                 <td>
-                    <a asp-action="Approve" asp-controller="Kak" asp-route-id="@clubEvent.EventId" class="btn btn-primary">
+                    <a asp-action="Approve" asp-controller="Kak" asp-route-id="@clubEvent.EventId" class="btn btn-success">
                         Onayla
                     </a>
                     <a asp-action="Deny" asp-controller="Kak" asp-route-id="@clubEvent.EventId" class="btn btn-danger">

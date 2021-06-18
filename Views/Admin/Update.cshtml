@@ -3,24 +3,31 @@
     ViewData["Title"] = "Update";
 }
 
-<div class="bg-primary">
+<div>
     <h2>Update User</h2>
 
 </div>
-<form asp-action="Update" method="post">
+<form class="form-control-static form-inline" asp-action="Update" method="post">
     <div class="text-danger" asp-validation-summary="All"></div>
     <div class="form-group">
-        <label asp-for="Id"></label>
-        <input asp-for="Id" class="form-control" disabled/>
+        <label asp-for="Id">Id</label>
+        <br />
+        <input asp-for="Id" class="form-control" disabled />
     </div>
+    <br />
     <div class="form-group">
-        <label for="Password">Password</label>
-        <input name="Password" class="form-control" />
+        <label asp-for="PasswordHash">Password</label>
+        <br />
+        <input asp-for="PasswordHash" name="Password" class="form-control" placeholder="Password" />
     </div>
+    <br />
     <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
+        <label asp-for="Email">Email</label>
+        <br />
+        <input asp-for="Email" class="form-control" placeholder="Email" />
     </div>
+    <br />
+    <br />
 
 
     <input type="submit" value="Update" class="btn btn-primary" />

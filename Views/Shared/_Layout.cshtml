@@ -10,30 +10,39 @@
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse ">
+    <div class="page-header container">
+        <h1 >Boun Club Managament System <small>BCMS</small></h1>
+    </div>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
         <div class="container">
+            <div class="page-header container text-primary">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img alt="Brand" width="50" height="50" src="~/images/bounlogo.png">
+                </a>
+                <h1>Boun Club Managament System <small>BCMS</small></h1>
+            </div>
             <div class="navbar-header ">
+                
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">BCMS</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand glyphicon glyphicon-home"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
                     <li><a asp-area="" asp-controller="Club" asp-action="Index">Kulüpler</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">Hakkında</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">İletisim</a></li>
+                    <li><a class="navbar-right" asp-area="" asp-controller="Home" asp-action="Contact">İletisim</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -45,8 +54,15 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2021 - Boun Club Managament System</p>
+        <footer class="navbar">
+            <br />
+            <address class="container">
+                Boğaziçi Üniversitesi 34342<br />
+                Bebek/İstanbul Türkiye<br />
+                <abbr title="Phone"></abbr>
+                +90 212 359 54 00
+            </address>
+            <p class="container">&copy; 2021 - Boun Club Managament System</p>
         </footer>
     </div>
 
@@ -60,14 +76,12 @@
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
                 crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
                 crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"></script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 
